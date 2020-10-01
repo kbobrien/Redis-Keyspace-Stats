@@ -78,4 +78,3 @@ for k in key_counts:
         avg_item_key = int(round(key_item_counts[k]/key_counts[k]))
         avg_item_size = int(round(mem_sum[k]/key_item_counts[k]))
     print('{:<20}{:>10}{:>15}{:>25}{:>20}{:>35}{:>20}{:>20}'.format(k, key_type[k], key_counts[k], mem_sum[k], avg_size, key_item_counts[k], avg_item_key,avg_item_size))
-
