@@ -1,6 +1,5 @@
 import redis
 import argparse
-import pprint
 
 parser = argparse.ArgumentParser(description='Scan all keys in redis database, extracting stats for keyspaces based on a delimeter.')
 parser.add_argument('-H', dest='host', action='store', type=str, help='Redis host for connection', default='localhost')
@@ -67,7 +66,7 @@ for key in cache.scan_iter(match=args.match, count=args.scan_count):
 
 
 print('')
-print('Redis keyspace stats for: {}:{}<{}>'.format(args.host, args.port, args.db))
+print('Redis keyspace stats for: {}:{}<db{}>'.format(args.host, args.port, args.db))
 print('-------')
 print('Total Keys : ', i)
 print('Total Bytes: ', bytes)
