@@ -60,13 +60,12 @@ optional arguments:
 To run the tool via docker you use the following:
 
 ```
-docker run --rm redis-keyspace-stats:latest python redis_keyspace_stats.py --help
+docker run --rm kbobrien/redis-keyspace-stats:latest python redis_keyspace_stats.py --help
 ```
 
 example:
 ```
-docker run --rm redis-keyspace-stats:latest python redis_keyspace_stats.py -H host.docker.internal -P 6379 -t -m AH:*
-docker run --rm kbobrien/redis-keyspace-stats:latest python redis_keyspace_stats.py -H calcium.mas5si.ng.0001.use1.cache.amazonaws.com -P 6379 -t -m AH:*
+docker run --rm kbobrien/redis-keyspace-stats:latest python redis_keyspace_stats.py -H host.docker.internal -P 6379 -t -m AH:*
 
 ```
 
@@ -78,4 +77,11 @@ docker run --rm kbobrien/redis-keyspace-stats:latest python redis_keyspace_stats
 To build the container use the following:
 ```
 docker build -t redis-keyspace-stats .
+```
+
+### Running Local Python Scripts
+
+To run another python from your host machine using this docker image use:
+```
+docker run --rm -v script.py:/app/script.py kbobrien/redis-keyspace-stats:latest python /app/script.py
 ```
