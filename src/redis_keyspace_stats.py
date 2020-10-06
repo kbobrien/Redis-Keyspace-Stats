@@ -1,5 +1,6 @@
 import redis
 import argparse
+from hurry.filesize import size
 
 parser = argparse.ArgumentParser(description='Scan all keys in redis database, extracting stats for keyspaces based on a delimeter.')
 parser.add_argument('-H', dest='host', action='store', type=str, help='Redis host for connection', default='localhost')
@@ -73,8 +74,8 @@ print('Total Bytes: ', bytes)
 print('')
 print('Server stats:')
 print(' Keystats:', redis_key_count)
-print(' Used Memory:', redis_mem_stats['used_memory'])
-print(' Used Memory For Dataset:', redis_mem_stats['used_memory_dataset'])
+print(' Used Memory: {} ({})'.format(redis_mem_stats['used_memory'], size(redis_mem_stats['used_memory'])))
+print(' Used Memory For Dataset: {} ({})'.format(redis_mem_stats['used_memory_dataset'], size(redis_mem_stats['used_memory_dataset'])))
 print(' Used Memory For Dataset:', redis_mem_stats['used_memory_dataset_perc'])
 print('------------')
 print('Keyspace Stats:')

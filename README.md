@@ -65,7 +65,9 @@ docker run --rm redis-keyspace-stats:latest python redis_keyspace_stats.py --hel
 
 example:
 ```
-docker run --rm redis-keyspace-stats:latest python redis_keyspace_stats.py -H host.docker.internal -P 36379 -t -m AH:*
+docker run --rm redis-keyspace-stats:latest python redis_keyspace_stats.py -H host.docker.internal -P 6379 -t -m AH:*
+docker run --rm kbobrien/redis-keyspace-stats:latest python redis_keyspace_stats.py -H calcium.mas5si.ng.0001.use1.cache.amazonaws.com -P 6379 -t -m AH:*
+
 ```
 
 *Note:* On Docker For Mac, you need to use the `host.docker.internal` hostname to access ports on the host machine.
